@@ -79,7 +79,7 @@ class import_job_corporate extends Command
 $this->call('コマンド名');
 これで別のコマンドを呼び出せる
 ```
-public function handle() //コマンド sample:clear_jobとsample:import_jobを呼び出す処理
+public function handle() //コマンド sample:clear_jobとsample:import_jobを呼び出し実効する処理
     {
         $this->call('sample:clear_job');
         $this->call('sample:import_job');
