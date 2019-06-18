@@ -11,11 +11,24 @@ array_rand($配列名,[取得数])を使う
 配列の番号を取り出すので、中身が欲しい場合は
 取り出した番号をもとに配列から呼び出す
 
+## 使い方
+
+```php
+$array=[0,1,2,3,4,5,6];
+$rand=array_rand($array);
+print($rand);
+```
+
 ## テキストファイルを配列にする方法
-file(ファイル名)を使う　
+file(テキストファイル)を使う　
 ※このまま使うと改行コード含まれるのでファイル名の後に「FILE_IGNORE_NEW_LINES」を追加して改行コードを削除してください
 
-# 参考
+## 使い方
+
+$sampe_file_path=storage_path("sample/corporate/sample.txt");
+$samples=file($sample_file_path,FILE_IGNORE_NEW_LINES);
+
+### 参考
 
 [【PHP】オブジェクトと連想配列の違いについて調べてみた【初心者向け】 \| もんプロ～問題解決としてのプログラミング〜](https://coinbaby8.com/different-between-object-and-array.html)
 
