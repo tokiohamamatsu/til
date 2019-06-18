@@ -1,38 +1,65 @@
-# artisan commandの作り方
+# artisan command
 
-1. Terminal(Ctrl+Shift+@)から `php artisan make:command`を使う
-2. コマンド名名入力時:ではなく/を使う
-3. 作成成功した場合ファイルの `$signature`をコマンド名にする
-4. `php artisan list`でファイルがあるか確認する 
+artisan commandでコンソールからlaravelを使用したコマンドを作成できる。
+
+- [【Laravel】Artisanコマンドを自作する方法 \| とものブログ](https://se-tomo.com/2018/10/13/laravel-%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%A0%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/)
+
+
+## 使い方
+
+Terminal(Ctrl+Shift+@)から `php artisan make:command`を使う
+
+```bash:sample
+$php artisan make:command test/testCommand
 ```
-php artisan make:command sample/import_job //sampleフォルダとimport_job.phpがapp/console/commandsに作られる
-php artisan list //使えるコマンドの一覧が表示される
+- コマンドのディレクトリを分けるときは/で区切る
+
+### 実行例
+
+`artisan list`でコマンドが作成されているか確認できる。
+(デフォルトではcommand:nameが作成される)
+
+```bash
+$ php artisan make:command test/testCommand
+Console command created successfully.
+$ php artisan list
+Laravel Framework 5.8.21
+(略)
+ cache
+  cache:clear              Flush the application cache
+  cache:forget             Remove an item from the cache
+  cache:table              Create a migration for the cache database table
+ command
+  command:name             Command description
+ config
+  config:cache             Create a cache file for faster configuration loading
 ```
-5. `public function handle()`の中にコマンドの処理を書く
-6. `$description`にコマンドのコメントを書く
-```
+
+
+## プログラムの記述方法
+
+作成されたファイルは`app/console/commands`に出力されている。
+
+```php
 <?php
 
-namespace App\Console\Commands\sample;
-
+namespace App\Console\Commands\test;
 use Illuminate\Console\Command;
-use App\Mjob_type_model;
-
-class import_job_corporate extends Command
+class testCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'sample:import_job'; //フォルダ名とコマンド名
+    protected $signature = 'command:name';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = '職種マスタのサンプルをインポートする'; //コマンドのコメント 主に説明
+    protected $description = 'Command description';
 
     /**
      * Create a new command instance.
@@ -49,43 +76,32 @@ class import_job_corporate extends Command
      *
      * @return mixed
      */
-     //テキストファイルをDBに登録する処理
-    public function handle()  //コマンドの処理を書く
+    public function handle()
     {
-        $sample_file_path=storage_path("sample/corporate/job type.txt");
-        $samples=file($sample_file_path, FILE_IGNORE_NEW_LINES);
-        
-        foreach ($samples as $index=>$sample) {
-            Mjob_type_model::create([
-                '職種名'=>$sample,
-                '略称名'=>mb_substr($sample, 0, 2),
-                '勤務時間区分'=>(rand(0, 99) < 20)?1:0
-            ]);
-            if ($index % 100==0) {
-                print "*";
-            }
-        }
+        //
     }
 }
+
 ```
-7. 保存
 
-### 参考
 
-[【Laravel】Artisanコマンドを自作する方法 \| とものブログ](https://se-tomo.com/2018/10/13/laravel-%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%A0%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/)
+1. `$signature`をartisan listに出力されるコマンド名を設定する
+2. `$description`に概要を書く
+3. `public function handle()`の中にコマンドの処理を書く
+
+
 
 ## コマンドから別のコマンドを呼び出す
 
-$this->call('コマンド名');
-これで別のコマンドを呼び出せる
-```
-public function handle() //コマンド sample:clear_jobとsample:import_jobを呼び出し実効する処理
+[artisanコマンドからartisanコマンドを呼び出す方法の比較 \- Qiita](https://qiita.com/orange634nty/items/9cbcc5cbe9174966a74b)
+
+`$this->call('aaa');`でaaaのコマンドを呼び出せる
+
+```php
+public function handle() 
     {
-        $this->call('sample:clear_job');
-        $this->call('sample:import_job');
+        $this->call('test:testCommand');
+
+        //そのほかの処理
     }
 ```
-
-### 参考
-
-[artisanコマンドからartisanコマンドを呼び出す方法の比較 \- Qiita](https://qiita.com/orange634nty/items/9cbcc5cbe9174966a74b)
