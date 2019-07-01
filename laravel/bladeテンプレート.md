@@ -172,39 +172,123 @@ form.blade.phpにerror.blade.phpが反映される
 @endsection
 ```
 
-孫 view.blade.php
+孫 edit.blade.php
 ```php
 @extends('layouts.list')
 
-@section('title',$data->企業名.'の詳細')
+@section('title','担当者マスタ('.$mode.')')
 
-@section('sidevar') 
+@section('calendar')
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/redmond/jquery-ui.css">
+<script src = "{{asset('/js/jquery-calendar.js')}}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+@endsection
+
+@section('main')
 <div class="col-2">&nbsp;</div>
 <div class="col-8">
-    <div class="card">
-        <div class="card-body">
+{{Form::open(['method'=>'post','route'=>$route])}}
+    <div class="form-group" >
+    
+        
+        @if($mode=='削除')
+            <h4>本当に削除しますか？</h4>
+        @endif
+        <div class="input">
             <div class="inputarea">
                 <div class="formarea">
-                    <label>企業CD</label>
-                    <span class="form-control">{{$data->企業CD}}</span>
+                {{Form::label('担当者CD','担当者CD')}}
+                    @php($class=['class'=>'textbox form-control-sm','readonly'=>true])
+                    @php($label=null)
+                    @php($dateclass=['class'=>'textbox form-control-sm datepicker','placeholder'=>'例）2019/01/01'])
+                    @if($mode=='登録')
+                        @php($label=['class'=>'required'])
+                        @php($class=['class'=>'textbox form-control-sm','disabled'=>true])
+                        @php($No=null)
+                        @php($name=null)
+                        @php($date=null)
+                        @php($retirement=null)
+                    @else
+                        @php($No=$data->担当者CD)
+                        @php($name=$data->担当者名)
+                        @php($date=$data->入社日)
+                        @php($retirement=$data->退職日)
+                    @endif
+                    @if($mode=='参照作成')
+                        @php($class=['class'=>'textbox form-control-sm','disabled'=>true])
+                        @php($No=null)
+                    @endif
+
+                {{Form::text('担当者CD',$No,$class)}}
                 </div>
                 <div class="formarea">
-                    <label>企業名</label>
-                    <span class="form-control">{{$data->企業名}}</span>
+                    {{Form::label('担当者名','担当者名',$label)}}
+                    @php($class=['class'=>'textbox form-control-sm'
+                            ,'maxlength'=>'40'
+                            ,'placeholder'=>'入力してください'
+                            ,'required'=>true])
+                    @if($mode=='削除'or $mode=='参照作成')
+                        @php($class=['class'=>'textbox form-control-sm'
+                                ,'readonly'=>true])
+                    @endif
+                    {{Form::text('担当者名',$name,$class)}}
                 </div>
                 <div class="formarea">
-                    <label>略称名</label>
-                    <span class="form-control">{{$data->略称名}}</span>
+                    {{Form::label('企業CD','企業名')}}
+                    <span class="textbox">{{$data->businessName->企業名}}</span>
+                    {{Form::hidden('企業CD',$data->企業CD)}}
                 </div>
-                <div class="blockbtn card-footer">
-                <button class="btn btn-secondary btnspace" onclick="location.href='{{route('business.update',['cd'=>$data->企業CD])}}'">修正</button>
-                <a href="{{route('business.index')}}"><input type="button" class="btn btn-secondary btnspace" value="戻る"></a>
+                <div class="formarea">
+                    {{Form::label('職種名','職種名')}}
+
+                    <select name="職種CD" class="textbox form-control-sm">
+                        @foreach($jobtypes as $jobtype)
+                        <option value={{$jobtype->職種CD}} @if($data->職種CD==$jobtype->職種CD and $mode!='登録') selected @endif>{{$jobtype->職種名}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="formarea">
+                    {{Form::label('入社日','入社日',$label)}}
+                    @if($date==null)
+                    {{Form::text('入社日',null,$dateclass)}}
+                    @else
+                    {{Form::text('入社日',date("Y/m/d",strtotime($date)),$dateclass)}}
+                    @endif
+                </div>
+                <div class="formarea">
+                    {{Form::label('退職日','退職日')}}
+                    @if($retirement==null)
+                    {{Form::text('退職日',null,$dateclass)}}
+                    @else
+                    {{Form::text('退職日',date("Y/m/d",strtotime($retirement)),$dateclass)}}
+                    @endif
+                </div>
+                <div class="formarea">
+                    {{Form::label('給与形態','月給')}}
+                    {{Form::radio('給与形態','0',true)}}
+                    {{Form::label('給与形態','日給')}}
+                    {{Form::radio('給与形態','1')}}
+                    
+                </div>
+                
+                <div class="formarea">
+                    {{Form::label('権限flg','権限')}}
+                    <select name="権限flg" class="textbox form-control-sm">
+                        <option value="0" @if($data->権限flg==0 and $mode!='登録') selected @endif >ログイン不可</option>
+                        <option value="1" @if($data->権限flg==1 and $mode!='登録') selected @endif >ログイン可能</option>
+                        <option value="2" @if($data->権限flg==2 and $mode!='登録') selected @endif >金額調整権限あり</option>
+                    </select>
+                </div>
+                <div class="blockbtn">
+                {{Form::submit($mode,['class' => "btn btn-secondary btnspace"])}}
+                {{Form::button('戻る',['class'=>'btn btn-secondary btnspace','onclick'=>'history.back()'])}}
                 </div>
             </div>
         </div>
     </div>
+{{Form::close()}}
 </div>
-<div class="col-2">&nbsp;</div>  
 @endsection
 ```
 
