@@ -208,6 +208,10 @@ form.blade.phpにerror.blade.phpが反映される
 @endsection
 ```
 
+### 概要
+
+孫が子を継承し、その子が親を継承しているので孫が親を継承できる
+
 ### 参考
 
 [[Laravel] レイアウトを多重継承する \- Qiita](https://qiita.com/kamikosi/items/b7ec871657d25a00ef67)
