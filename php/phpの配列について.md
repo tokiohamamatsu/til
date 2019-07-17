@@ -35,3 +35,23 @@ $samples=file($sample_file_path,FILE_IGNORE_NEW_LINES);
 [PHP: array\_rand \- Manual](https://www.php.net/manual/ja/function.array-rand.php)
 
 [【PHP】テキストファイルのデータを配列に入れる方法 – ysklog](https://ysklog.net/php/1039.html)
+
+## 連想配列のキーの取得
+
+### やりたいこと
+
+セレクトボックスのオプションを連想配列と同じにしたい
+
+`foreach(配列 as キー => 値)`で連想配列のすべてのキーと値を取得できる
+
+```php 
+<select>
+@foreach($array as $key => $value)
+    <option value={{$key}}>{{$value}}</option>
+@endforeach
+</select>
+``` 
+
+#### 参考
+
+[【PHP】連想配列の作成と、連想配列のキー・値を取得し出力する例](https://blog-and-destroy.com/2651)
