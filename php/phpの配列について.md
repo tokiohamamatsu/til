@@ -42,6 +42,8 @@ $samples=file($sample_file_path,FILE_IGNORE_NEW_LINES);
 
 セレクトボックスのオプションを連想配列と同じにしたい
 
+#### やり方
+
 `foreach(配列 as キー => 値)`で連想配列のすべてのキーと値を取得できる
 
 ```php 
