@@ -25,7 +25,9 @@ propsでデータを受けとることができ、受け取る型も指定でき
 - データの表示
 
 ```php
-<span class="test">{{test}}</span>
+<template>
+    <span class="test">{{test}}</span>
+</template>
 ```
 propsで受け取った変数の中身は{{}}使えば表示できる
 
