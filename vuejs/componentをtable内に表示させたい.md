@@ -1,4 +1,4 @@
-# comonentをtable内に表示させたい
+# componentをtable内に表示させたい
 
 componentをtable内に表示させたい
 
