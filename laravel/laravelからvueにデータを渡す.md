@@ -219,6 +219,20 @@ json_encodeをした文字列が文字化けを起こしたのでそれを直し
 
 JSON_UNESCAPED_UNICODEはUnicode文字をそのまま形式で使う
 
+実行前
+
+```
+[{&quot;id&quot;:1,&quot;\u65e5\u5831id&quot;:1,&quot;\u884c&quot;:1,&quot;\u55b6\u696d\u65e5&quot;:&quot;2019-07-26&quot;,&quot;\u62c5\u5f53\u8005CD&quot;:10,&quot;\u627f\u8a8d\u62c5\u5f53\u8005&quot;:2,&quot;\u59cb\u696d\u6642\u523b&quot;:&quot;10:44:18&quot;,&quot;\u7d42\u696d\u6642\u523b&quot;:&quot;10:44:20&quot;,&quot;\u4f11\u61a9\u6642\u9593&quot;:&quot;01:00:00&quot;,&quot;\u904b\u8ee2\u624b\u5f53\u7533\u8acb&quot;:0,&quot;\u904b\u8ee2\u624b\u5f53&quot;:&quot;0&quot;,&quot;created_at&quot;:&quot;2019-07-26 10:45:13&quot;,&quot;updated_at&quot;:&quot;2019-07-26 10:45:15&quot;,&quot;updated_by&quot;:null}]
+```
+
+実行後
+
+```
+[{&quot;id&quot;:1,&quot;日報id&quot;:1,&quot;行&quot;:1,&quot;営業日&quot;:&quot;2019-07-26&quot;,&quot;担当者CD&quot;:10,&quot;承認担当者&quot;:2,&quot;始業時刻&quot;:&quot;10:44:18&quot;,&quot;終業時刻&quot;:&quot;10:44:20&quot;,&quot;休憩時間&quot;:&quot;01:00:00&quot;,&quot;運転手当申請&quot;:0,&quot;運転手当&quot;:&quot;0&quot;,&quot;created_at&quot;:&quot;2019-07-26 10:45:13&quot;,&quot;updated_at&quot;:&quot;2019-07-26 10:45:15&quot;,&quot;updated_by&quot;:null}]
+```
+
+
+
 ### 参考
 
 [PHP: 定義済み定数 \- Manual](https://www.php.net/manual/ja/json.constants.php)
