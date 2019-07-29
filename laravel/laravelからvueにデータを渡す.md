@@ -206,3 +206,21 @@ export default{
 ### 参考
 
 [リストレンダリング — Vue\.js](https://jp.vuejs.org/v2/guide/list.html#v-for-%E3%81%A7%E9%85%8D%E5%88%97%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%9E%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0%E3%81%99%E3%82%8B)
+
+## json_encodeの文字化けを直す
+
+json_encodeをした文字列が文字化けを起こしたのでそれを直したい
+
+```php
+<div id="app">
+    <item-component :data="{{json_encode($data->datails->toArray(),JSON_UNESCAPED_UNICODE)}}"><item-component>
+</div>
+```
+
+JSON_UNESCAPED_UNICODEはUnicode文字をそのまま形式で使う
+
+### 参考
+
+[PHP: 定義済み定数 \- Manual](https://www.php.net/manual/ja/json.constants.php)
+
+[json\_encode\(\)の戻り値をUnicodeエスケープしないようにする \- Qiita](https://qiita.com/fivestar/items/df2b85236f32c2110ad6)
