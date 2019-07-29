@@ -219,8 +219,6 @@ json_encodeをした文字列が文字化けを起こしたので直したい
 </div>
 ```
 
-JSON_UNESCAPED_UNICODEはUnicode文字をそのまま形式で使う
-
 上記のコードを実行すると文字化けが直った
 
 実行前
