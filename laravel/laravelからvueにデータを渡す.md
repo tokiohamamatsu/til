@@ -209,7 +209,9 @@ export default{
 
 ## json_encodeの文字化けを直す
 
-json_encodeをした文字列が文字化けを起こしたのでそれを直したい
+json_encodeをした文字列が文字化けを起こしたので直したい
+
+[json\_encode\(\)の戻り値をUnicodeエスケープしないようにする \- Qiita](https://qiita.com/fivestar/items/df2b85236f32c2110ad6)を参考に下記コードを記述する
 
 ```php
 <div id="app">
@@ -218,6 +220,8 @@ json_encodeをした文字列が文字化けを起こしたのでそれを直し
 ```
 
 JSON_UNESCAPED_UNICODEはUnicode文字をそのまま形式で使う
+
+上記のコードを実行すると文字化けが直った
 
 実行前
 
@@ -231,10 +235,7 @@ JSON_UNESCAPED_UNICODEはUnicode文字をそのまま形式で使う
 [{&quot;id&quot;:1,&quot;日報id&quot;:1,&quot;行&quot;:1,&quot;営業日&quot;:&quot;2019-07-26&quot;,&quot;担当者CD&quot;:10,&quot;承認担当者&quot;:2,&quot;始業時刻&quot;:&quot;10:44:18&quot;,&quot;終業時刻&quot;:&quot;10:44:20&quot;,&quot;休憩時間&quot;:&quot;01:00:00&quot;,&quot;運転手当申請&quot;:0,&quot;運転手当&quot;:&quot;0&quot;,&quot;created_at&quot;:&quot;2019-07-26 10:45:13&quot;,&quot;updated_at&quot;:&quot;2019-07-26 10:45:15&quot;,&quot;updated_by&quot;:null}]
 ```
 
-
-
 ### 参考
 
 [PHP: 定義済み定数 \- Manual](https://www.php.net/manual/ja/json.constants.php)
 
-[json\_encode\(\)の戻り値をUnicodeエスケープしないようにする \- Qiita](https://qiita.com/fivestar/items/df2b85236f32c2110ad6)
