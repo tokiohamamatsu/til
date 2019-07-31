@@ -4,7 +4,7 @@
 
 - document.getElementById()
     - id名で要素を取得する 
-    - 
+
 ```html
 <template>
 <div id="box">This is box</div>
