@@ -1,6 +1,6 @@
 # htmlから要素を取得する
 
-## scriptでhtmlを操作する
+## scriptでhtmlから要素を取得する
 
 - document.getElementById()
     - id名で要素を取得する 
