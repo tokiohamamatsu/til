@@ -20,8 +20,6 @@
         <td><input type="time" name="datails[休憩時間][]" :value=" datail.休憩時間 " class="form-control-sm col-auto"></td>
         <td><input type="hidden" name="datails[運転手当申請][]" :value="datail.運転手当申請" class="value">
         <input type="checkbox" :checked="datail.運転手当申請==1" v-on:change="checked" class="check"></td>
-        <td><button type="button" v-on:click="push(1)">+</button></td>
-        <td><button type="button" v-on:click="pop">-</button></td>
     </tr>
     
     </table>
@@ -42,19 +40,6 @@ export default{
     },
     
     methods:{
-        push: function ($add){
-            for(var i =0;i < $add;i++){
-            this.$set(this.$props.datails,this.$props.datails,this.$props.datails.push({}))
-            console.log(this.$props.datails)
-            this.$forceUpdate();
-            }
-        },
-
-        pop: function(){
-            this.$set(this.$props.datails,this.$props.datails,this.$props.datails.pop({}))
-            console.log(this.$props.datails)
-            this.$forceUpdate();
-        },
         checked(event){
             var check=document.getElementsByClassName('check')
             var value=document.getElementsByClassName('value')
