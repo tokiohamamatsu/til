@@ -166,6 +166,10 @@ $("#siteDialog .modal-body").on("click",".page-link",function(){
 });
 ```
 
+## 呼び出し方
+
+@incudeでダイアログを読み込む
+
 ```php
 <form method="post" action={{route($route)}} name="report">
 @csrf
@@ -175,6 +179,8 @@ $("#siteDialog .modal-body").on("click",".page-link",function(){
 </form>
 @include("site.dialog")
 ```
+
+skipjack.ダイアログ名.openで呼び出す
 
 ```js
 sitedialog() {
