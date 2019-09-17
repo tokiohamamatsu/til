@@ -112,7 +112,7 @@ foreach ($data as $key => $value) {
 配列をセルに入れる
 
 ```php
-$sheet->fromArray()
+$sheet->fromArray($ary, null, 'A1')
 ```
 
 ファイルを保存する
