@@ -24,6 +24,13 @@ $("要素").removeClass("changed");
 
 第二引数に論理式を渡せる、結果がtrueだと`add`(追加)、falseだと`remove`(削除)する
 
+```js
+$('textarea').on('change', function(){
+  var $this = $(this);
+  $this.toggleClass('error', $this.val().length > 10);
+});
+```
+
 ### 参考
 
 [jQuery classの追加・削除 \- Qiita](https://qiita.com/Scheme/items/300739f6da6a95e58306)
