@@ -159,3 +159,7 @@ for($i = 0 ;$i < $cnt_sheet ; $i++ ){
   $ar_contents[] = $spread -> getSheet($i) -> toArray(); //シート内全データの取得
 }
 ```
+
+### 参考
+
+[PhpSpreadsheetのTIPSあれこれ \- Qiita](https://qiita.com/BRSF/items/ed32311d48161be7c719#%EF%BC%97-%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E3%81%BE%E3%82%8B%E3%81%94%E3%81%A8%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%82%80)
