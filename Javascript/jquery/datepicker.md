@@ -2,7 +2,7 @@
 
 jquery-ui.jsを覗いてみた
 
-_generateHTMLでhtml上に出力されているみたいだ(外装だけ)
+_generateHTMLでhtml上に出力されているみたいだ(中身は別の関数)
 
 ```js
 _generateHTML: function(inst) {
