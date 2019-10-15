@@ -12,6 +12,7 @@ mounted() {
 Validator.localize("ja", dict);
 ```
 
+カスタム内容を`Validator.localize`にいれることで上書きできる
 
 ### 参考
 [Vue\.js VeeValidateの固有メッセージを変更する](https://mseeeen.msen.jp/change-a-message-of-the-veevalidate/)
