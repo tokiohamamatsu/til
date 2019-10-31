@@ -13,7 +13,7 @@ Message: [] operator not supported for strings
 配列の初期化は
 
 ```php
-Message: [] operator not supported for strings
+$post_type = array(); // array型
 ```
 か
 ```php
