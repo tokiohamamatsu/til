@@ -1,6 +1,6 @@
 # vueでbootstrapが動かない時の対処法
 
-bootstrap.min.jsとapp.jsを読み込むと二重に読み込むことになるのでドロップダウンが動かなくなる
+bootstrap.min.jsとapp.jsを読み込むと二重に読み込むことになり、bootstrapが機能しなくなる。
 
 対処法
 
