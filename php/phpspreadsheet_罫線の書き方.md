@@ -20,7 +20,6 @@ borderstyleの種類
 
 上記の`outline`の部分を書き換える
 設定できる値はborderstyleのリンク先に書いてある。
-
 allbordersは罫線が引かれず使えなかった。
 
 ### 参考
