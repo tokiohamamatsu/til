@@ -13,7 +13,6 @@ $time=sprintf('%d:%02d', $Hour, $Minute);
 
 format文字(`%d:%02d`)の`%d`は数値を表し、`02`はゼロ埋めを表す
 
-
 ### 参考
 
 [PHP: sprintf \- Manual](https://www.php.net/manual/ja/function.sprintf.php)
