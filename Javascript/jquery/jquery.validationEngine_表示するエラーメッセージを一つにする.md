@@ -1,4 +1,6 @@
-# jquery.validationEngine 表示するエラーメッセージを一つにする
+# jquery.validationEngine 
+
+## 表示するエラーメッセージを一つにする
 
 ```js
 $("#form_id").validationEngine({
