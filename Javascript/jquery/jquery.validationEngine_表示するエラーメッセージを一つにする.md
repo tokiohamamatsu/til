@@ -8,7 +8,7 @@ $("#form_id").validationEngine({
 });
 ```
 
-バリデーションの`maxErrorsPerField`に表示するエラーメッセージの最大数を指定する
+フォームにバリデーションをバインドする時、`maxErrorsPerField`に表示するエラーメッセージの最大数を指定する
 
 ## 参考
 
