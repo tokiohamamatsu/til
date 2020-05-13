@@ -13,6 +13,6 @@ suexecは適切に使用できれば、セキュリティ上の危険を減ら�
 
 ### 参考
 
-[\[Apache\] CGI 使うなら suEXEC 設定しとこ \| バシャログ。](http://bashalog.c-brains.jp/12/01/24-114146.php)
+[[Apache] CGI 使うなら suEXEC 設定しとこ \| バシャログ。](http://bashalog.c-brains.jp/12/01/24-114146.php)
 
 [suEXEC サポート \- Apache HTTP サーバ バージョン 2\.4](https://httpd.apache.org/docs/2.4/ja/suexec.html)
