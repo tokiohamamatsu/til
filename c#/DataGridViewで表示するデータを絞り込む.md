@@ -1,4 +1,4 @@
-# DataGridViewで表示すデータを絞り込む
+# DataGridViewで表示するデータを絞り込む
 
 BindigSourceにDataGridViewのDatasourceを代入し、BindigSourceのfilterに条件式を入れる。
 
