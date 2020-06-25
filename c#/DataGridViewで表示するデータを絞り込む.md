@@ -5,11 +5,12 @@ BindigSourceにDataGridViewのDatasourceを代入し、BindigSourceのfilterに�
 ※条件式を記述するときはDataGridViewに表示されている列名を対象にする。
 
 ```c#
-Private void DataGridViewFilter{
+private void DataGridViewFilter()
+{
     BindingSource bs = new BindingSource();
     string strFilter;
-    bs.DataSource = dgvAppList.DataSource;
-    strFilter = "Color like '%" & 条件 & "%'"
+    bs.DataSource = DataGridView.DataSource;
+    strFilter = "Color like '%" + 条件 + "%'"
     bs.Filter = strFilter
 }
 ```
