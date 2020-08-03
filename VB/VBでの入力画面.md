@@ -1,6 +1,6 @@
 # VBでの入力画面
 
-VBにはindexboxという関数があり、これはテキストボックスを持ったダイアログを表示するもの。入力された文字列が返ってくる。
+VBにはinputboxという関数があり、これはテキストボックスを持ったダイアログを表示するもの。入力された文字列が返ってくる。
 
 ```vb
 InputBox(prompt[, title] [, default] [, xpos] [, ypos] [, helpfile, context])
