@@ -10,6 +10,4 @@ var_dumpは主にデバッグで使う。
 
 ### 参考
 
-
 [PHPで上手にデバッグして効率のよい開発を身につけよう｜TECH PLAY Magazine ［テックプレイマガジン］](https://techplay.jp/column/571)
-
