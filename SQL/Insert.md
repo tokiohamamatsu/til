@@ -1,6 +1,6 @@
 # Insert
 
-SQLのInsertの書き方を忘れていたいため書いておく
+SQLのInsertの書き方を忘れていたため書いておく
 
 
 ```sql
