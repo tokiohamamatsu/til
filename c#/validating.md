@@ -1,4 +1,4 @@
-# valodating
+# validating
 
 validatingで`e.cnacel=true`と記述するとフォーカスが動かなくなる。
 
