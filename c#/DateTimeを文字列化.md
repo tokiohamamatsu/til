@@ -10,4 +10,4 @@
 
 ### 参考
 
-(日時（DateTimeオブジェクト）を文字列に変換する)[https://dobon.net/vb/dotnet/string/datetimeformat.html]
+[日時（DateTimeオブジェクト）を文字列に変換する](https://dobon.net/vb/dotnet/string/datetimeformat.html)
